@@ -12,8 +12,13 @@ jobs:
           architecture: armv7
           distribution: ubuntu18.04
           run: |
-            uname -a
+            uname -a >test.txt
             echo ::set-output name=uname::$(uname -a)
       - name: Get the output
         run: |
             echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+      - name: Get the output
+        run: |
+            pwd
+            ls
+            cat test.txt

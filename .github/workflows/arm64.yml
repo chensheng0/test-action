@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Run some commands on arm64
       id: runcmd
-      uses: chensheng0/test-action
+      uses: chensheng0/test-action@master
       with:
         architecture: aarch64
         distribution: ubuntu18.04

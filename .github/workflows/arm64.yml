@@ -1,15 +1,19 @@
 on: [push]
 
 jobs:
-  testactions_job:
-    runs-on: ubuntu-latest
-    name: A job to test the multi architecture action
+  armv7_job:
+    runs-on: ubuntu-18.04
+    name: Build on ARMv7 
     steps:
-    - name: Run some commands on arm64
-      id: runcmd
-      uses: chensheng0/test-action@master
-      with:
-        architecture: aarch64
-        distribution: ubuntu18.04
+      - uses: actions/checkout@v1.0.0
+      - uses: uraimo/run-on-arch-action@v1.0.5
+        id: runcmd
+        with:
+          architecture: armv7
+          distribution: ubuntu18.04
+          run: |
+            uname -a
+            echo ::set-output name=uname::$(uname -a)
+      - name: Get the output
         run: |
-          uname -a
+            echo "The uname output was ${{ steps.runcmd.outputs.uname }}"

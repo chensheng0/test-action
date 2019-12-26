@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-18.04
     name: Build on ARMv7 
     steps:
-      - uses: actions/checkout@v1.0.0
+      - uses: actions/checkout@master
       - uses: chensheng0/run-on-arch-action@v1.0.5
         id: runcmd
         with:

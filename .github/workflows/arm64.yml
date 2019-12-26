@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Run some commands on arm64
       id: runcmd
-      uses: test-baetyl
+      uses: chensheng0/test
       with:
         architecture: aarch64
         distribution: ubuntu18.04
